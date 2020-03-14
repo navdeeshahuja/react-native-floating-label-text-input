@@ -163,8 +163,14 @@ class FloatLabelTextField extends Component {
   }
 
   labelStyle() {
+    const styleFromProps = this.props.floatingLabelColor ?
+                                { color: this.props.floatingLabelColor } :
+                                {};
     if (this.state.focused) {
-      return styles.focused;
+      return {
+        ...styles.focused,
+        ...styleFromProps,
+      }
     }
   }
 
